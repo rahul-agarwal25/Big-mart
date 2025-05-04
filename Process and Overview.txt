@@ -1,0 +1,14 @@
+I have used Light GBM to predict the sales. This model gave me the best accuracy on test data. 
+In addition to this, I tried Random forest, XGBoost, Linear Regression, stacked regression and Voting Regression.
+
+Feature Engineering & Pre-processing
+
+1. Handle different spellings and values for column Item_Fat_Content
+2. Handle missing values for Item Weight. This was updated using Item_identifier column and after that the mean weight.
+3. There are cases where Item_Visibility was 0. Those cases have been updated with the mean Visibility of each Item Identifier.(Bec Visibility can never be 0)
+4. Using Outlet_Establishment_Year, I calculated a column called Age = 2013 - Outlet_Establishment_Year
+5. Upon closer look, we can see that there are 3 broad categories of Items. A new column called Item_broad_category was created.
+6. Item_Identifier & Outlet_Identifier are important variables because the sales of the item are dependent on the item(brand) and the outlet. So they are encoded.
+7. Other categorical variables like Outlet_Type, Outlet_Location_Type, Outlet_Size were label encoded. 
+8. I tried Binning MRP of the Item, however, I got better rank without binning. So, excluded it. PS- it was coming lower down the order of feature importance.
+
